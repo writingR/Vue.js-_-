@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<!--
+작성자 : 최아리   
+데이터 바인딩 - Reactivity
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app2">
+        
+    </div>
+    <script>
+       var div = document.querySelector('#app2');
+       var model = {};
+       //Object.defineProperties(객체,객체속성){문법}
+       Object.defineProperty(model,'st',{
+        // 속성에 접근했을때 동작 정의
+        get:function(){
+            console.log('접근');    
+        // 속성에 값을 주었을때 동작 정의    
+        }, set:function(newValue){
+            console.log('값들어감');
+            div.innerHTML = newValue;
+        }
+       }); 
+    </script>
+</body>
+</html>
