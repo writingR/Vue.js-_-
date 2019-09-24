@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<!--
+작성자 : 최아리   
+화면에 Hello Vue! 띄우기!
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        // 제이쿼리에서 선택자를 쓰는 것과 동일한 역할
+        // $('#app')
+       var div = document.querySelector('#app');
+       var str = 'Hello Vue!'
+       console.log(div);
+       div.innerHTML = str;
+       // str을 변경하고자 할때,
+       str = 'Hello Vue!!!!!!!!!!!!';
+       // 위와 같이 변경후 화면을 띄우면 변경이 되지 않는다. 
+       // innerHTML로 변경된 str을 가져와야한다.
+       div.innerHTML = str;
+    
+       // ------>  Hello Vue!!!!!!!!!!!! 출력
+
+    </script>
+</body>
+</html>
