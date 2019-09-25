@@ -1,0 +1,31 @@
+#app{
+    width: 96%;
+    margin: 0 auto;
+    background-color: black;
+}
+#header{
+    width: 100%;
+    height: 120px;
+    background-color: teal;
+}
+#content{
+    width: 64%;
+    height: 500px;
+    float: left;
+    background-color: aquamarine;
+}
+#aside{
+    width: 36%;
+    height: 500px;
+    float: right;
+    background-color: aqua;
+}
+#footer{
+    width: 100%;
+    height: 120px;
+    clear: both;
+    background-color: darkcyan;
+}
+h1{
+    text-align: center;
+}
