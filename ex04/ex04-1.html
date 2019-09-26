@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--
+    작성자 : 최아리 
+    v-bind
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <div id="app">
+        <!--<a :href="link">링크</a> 이렇게 선언해도 아래와 같음 -->
+        <a v-bind:href="link">링크</a>
+        <!--밑에와 같이 불러올 경우 에러남!-->
+        <a href="{{link}}">링크</a>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    new Vue({
+        el:'#app',
+        data:{
+            link:"http://www.naver.com"
+        },
+        methods: {
+            
+        }
+    })
+    </script>
+    
+</body>
+</html>

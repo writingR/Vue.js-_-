@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!--
+    작성자 : 최아리 
+    v-once
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--methods에서 텍스트가 변경되기 때문에 title로 불러와도 변경된 텍스트가 출력된다
+            이럴때 v-once를 쓰게되면 변경 전 텍스트를 출력할 수 있다.    
+        -->
+        <h1 v-once>{{ title }}</h1>
+        <p>{{ sayHello() }}</p> 
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({ 
+        el: "#app", 
+        data: {
+            title: "Hello Vue!",
+        },
+        methods: {
+            sayHello: function () {
+            this.title = "텍스트가 변경되었습니다."
+            return this.title
+            }
+        }
+        })
+    </script>
+</body>
+</html>
