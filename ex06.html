@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <!--  <app-content v-on:하위 컴포넌트에서 발생한 이벤트이름="상위 컴포넌트 메서드 이름"></app-content> -->
+        <app-content v-on:test="eventTest"></app-content>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+    // event
+    
+        var content = {
+            template : '<button v-on:click="clickExam">Click!</button>',
+            methods:{
+                clickExam:function(){
+                    this.$emit('test');
+                }
+            }
+        }
+
+        new Vue({
+            el:'#app',
+            components:{
+                'app-content':content
+            },
+            methods:{
+                eventTest:function(){
+                    console.log('test success');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
