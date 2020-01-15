@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <app-header></app-header>
+        <app-content v-bind:propsdata="test"></app-content>
+        <p>{{num}}</p>
+        <app-aside v-on:success="addNum"></app-aside>
+        <app-footer v-on:test="addText"></app-footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+            template : '<h1>Header</h1>'
+        }
+        var appContent = {
+            template : '<h2>{{propsdata}}</h2>',
+            props : ['propsdata']
+        }
+        var appAside = {
+            template : '<button v-on:click="clickPass">Click!</button>',
+            methods : { 
+                clickPass : function(){
+                    this.$emit('success')
+                }
+            }
+        }
+        var appFooter = {
+            template : '<button v-on:click="clickTest">textTest</button>',
+            methods:{
+                clickTest:function(){
+                    this.$emit('test')
+                }
+            }
+        }
+
+        new Vue({
+            el:'#app',
+            components:{
+                'app-header':appHeader,
+                'app-content':appContent,
+                'app-aside':appAside,
+                'app-footer':appFooter
+            },
+            data:{
+                test:'Content Test!',
+                num:0
+            },
+            methods:{
+                addNum:function(){
+                    this.num += 1
+                },
+                addText:function(){
+                    console.log('text!!');
+                }
+            }
+        })
+    </script>
+</body>
+</html>
