@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--app-aside에 있는 10의 값을 app-header로 옮기자!-->
+    <div id="app">
+        <app-header v-bind:propsdt="num"></app-header>
+        <app-aside v-on:up="eventNum"></app-aside>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var appHeader = {
+            template : '<div>header</div>',
+            props : ['propsdt']
+        }
+        var appAside = {
+            template : '<div>aside<button v-on:click="passNum">up</button></div>',
+            methods : {
+                passNum:function(){
+                    this.$emit('up',10)
+                }
+            }
+        }
+
+        new Vue({
+            el:'#app',
+            components:{
+                'app-header':appHeader,
+                'app-aside':appAside
+            },
+            data:{
+                num:0
+            },
+            methods:{
+                eventNum:function(val){
+                    this.num = val;
+                    console.log(this.num);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
