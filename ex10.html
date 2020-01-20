@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="app">
+        <div>
+            <router-link to="/"></router-link>
+            <router-link to='/page'>Page</router-link>
+        </div>
+        <router-view></router-view>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router/dist/vue-router.js"></script>
+    <script>
+        var Hello = {
+            template : '<div>홈 화면입니다.</div>'
+        }
+        var PageComponent = {
+            template : '<div>페이지를 이동합니다.<br><a href="ex10.html#/">HOME</a></div>'
+        }
+
+        var router = new VueRouter ({
+            routes : [
+                {
+                    path:'/',
+                    component:Hello
+                }
+                ,{
+                    path : '/page',
+                    component : PageComponent
+                }
+            ]
+        })
+
+        new Vue({
+            el :'#app',
+            router : router,
+        })
+
+    </script>
+</body>
+</html>
